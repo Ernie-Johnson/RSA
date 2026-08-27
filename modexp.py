@@ -18,3 +18,9 @@ def extended_gcd(a, b): # returns the bezout for a and b
     x = y1
     y = x1 - (a//b)*y1
     return (gcd, x, y)
+
+def mod_inverse(e, phi_n):
+    gcd, x, y = extended_gcd(e, phi_n)
+    if(gcd != 1):
+        raise ValueError(f"No inverse exists: gcd({e}, {phi_n}) = {gcd}, not 1")
+    return x%phi_n
